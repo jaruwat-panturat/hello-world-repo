@@ -1,0 +1,31 @@
+name: Standalone Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      HELM_CHART:
+        required: true
+        type: string
+        description: 'Set the root of the project'
+      HELM_REPO:
+        required: true
+        type: string
+        description: 'Set the root of the project'  
+      HELM_RELEASE:
+        required: true
+        type: string
+        description: 'Set the root of the project' 
+      STAGES:
+        required: true
+        description: 'Set the root of the project'  
+        type: choice
+        options:
+          - iTest
+          - Pre-prod
+
+jobs:
+  build_and_push:
+    runs-on: adp-runner-medium
+    steps:
+      - name: Print Hello World
+        run: echo "Hello World"
